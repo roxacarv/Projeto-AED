@@ -7,7 +7,7 @@ class Node:
 	def __init__(self, key, data):
 		self.__key = key
 		self.__data = data
-		self.__color = True
+		self.__color = False
 		self.__parent = None
 		self.__left = None
 		self.__right = None

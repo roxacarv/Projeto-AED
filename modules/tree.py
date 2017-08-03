@@ -17,7 +17,37 @@ class BinaryTree:
 	# seta a raiz da arvore
 	def SetRoot(self, newRoot):
 		self.__root = newRoot
-	
+
+	def Insert(self,data):
+    	#definindo duas variáveis, 1 como nulo e outra como a raiz
+		y = self.nulo
+		x = self.__root
+		# verificanção do x
+		while x !=self.nulo:
+    	#se o X não for nulo, poem o y = x, para se ter mais uma varíavel, pois vamos ter que fazer o x apontar para os filhos nas verificações
+			y = x
+			if data.GetData() < x.GetData():
+				x = x.GetLeft()
+			else:
+    			x = x.GetRight() 
+
+		data.SetParent(y)
+		#se o y for nulo, então sabemos que a raiz é nula, logo:
+		if y == self.nulo:
+			self.__root = data
+		#senão for nulo temos que verificar onde o dado vai estar, se é direito ou esquerdo:
+
+		elif data.GetData() < y.GetData():
+			y.setLeft(data)
+		else:
+    		y.SetRight(data)
+		#por fim, criamos os filhos, nulos e setamos como vermelho, após damos um fix para balancear a árvore
+		data.SetLeft(self.nulo)
+		data.SetRight(self.nulo)
+		data.SetIsRed(True)
+
+		#RBFixup(data) não esquecer de chamar o RBFixup para balanceamento da árvore
+
 	def RBFixup(self):
 		# fix das cores pra o balanceamento
 
