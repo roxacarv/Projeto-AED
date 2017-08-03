@@ -1,3 +1,4 @@
-Histórico de Modificações
+﻿Histórico de Modificações
 
 03/08/17 - 16:00 - Conclusão da classe Node. (André Arruda)
+03/08/17 - 16:30 - Início LeftRotation. (André Arruda)
