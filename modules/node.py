@@ -4,35 +4,51 @@
 
 class Node:
 
-	def __init__(self):
+	def __init__(self, key):
+		self.__key = key
+		self.__color = False
+		self.__data = None
+		self.__parent = None
+		self.__left = None
+		self.__right = None
 		# construtor do nó
 
+	# retorna o pai do nó
 	def GetParent(self):
-		# retorna o pai do nó
+		return self.__parent
 
+	# retorna o filho esquerdo do nó
 	def GetLeft(self):
-		# retorna o filho esquerdo do nó
-
+		return self.__left
+	
+	# retorna o filho direito do nó
 	def GetRight(self):
-		# retorna o filho direito do nó
-
+		return self.__right
+	
+	# retorna os dados do no
 	def GetData(self):
-		# retorna os dados do nó
+		return self.__data
 
+	# retorna a chave do nó // usada para identificar a posição na árvore
 	def GetKey(self):
-		# retorna a chave do nó // usada para identificar a posição na árvore
-
+		return self.__key
+		
+	# retorna a cor do nó // preto = False e vermelho = True
 	def GetIsRed(self):
-		# retorna a cor do nó // preto = False e vermelho = True
+		return self.__color
+	
+	# seta o pai do no
+	def SetParent(self, newParent):
+		self.__parent = newParent
 
-	def SetParent(self):
-		# seta o pai do nó
+	# seta o filho direito do nó
+	def SetRight(self, newRight):
+		self.__right = newRight
+	
+	# seta o filho esquerdo do nó
+	def SetLeft(self, newLeft):
+		self.__left = newLeft
 
-	def SetRight(self):
-		# seta o filho direito do nó
-
-	def SetLeft(self):
-		# seta o filho esquerdo do nó
-
-	def SetIsRed(self):
-		# seta a cor do nó
+	# seta a cor do no
+	def SetIsRed(self, newBooleanValue):
+		self.__color = newBooleanValue
