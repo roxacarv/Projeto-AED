@@ -4,10 +4,10 @@
 
 class Node:
 
-	def __init__(self, key):
+	def __init__(self, key, data):
 		self.__key = key
+		self.__data = data
 		self.__color = False
-		self.__data = None
 		self.__parent = None
 		self.__left = None
 		self.__right = None

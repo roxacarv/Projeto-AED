@@ -6,6 +6,7 @@ class BinaryTree:
 
 	def __init__(self):
 		# construtor da árvore
+		self.__root = self.__nulo = Node(None, None)
 
 	def RBFixup(self):
 		# fix das cores pra o balanceamento
@@ -19,13 +20,15 @@ class BinaryTree:
 	def RBRemove(self):
 		# método de remover um elemento
 
+	#André modificando...
 	def LeftRotation(self):
 		# método de rotacionar pra esquerda
-
+	
+	#André modificando...
 	def RightRotation(self):
 		# método de rotacionar pra direita
 
-	def TreeWalk(self):
+	def InOrderTreeWalk(self):
 		# caminhada
 
 	def Maximum(self):
