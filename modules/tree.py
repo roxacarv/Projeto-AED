@@ -86,18 +86,15 @@ class BinaryTree:
 		y.SetRight(noh)
 		noh.SetParent(y)
 		
-	# André modificando...
 	def InOrderTreeWalk(self):
-		# caminhada
-	
-	# André modificando...
+		#percorre a árvore em ordem (menor para maior)
+		
 	def Maximum(self):
 		# retorna o número máximo
-
-	# André modificando...
+	
 	def Minimum(self):
 		# retorna o número mínimo
-
+	
 	def Successor(self):
 		# retorna o número sucessor à entrada
 
