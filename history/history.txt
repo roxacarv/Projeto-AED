@@ -1,1 +1,3 @@
 Histórico de Modificações
+
+03/08/17 - 16:00 - Conclusão da classe Node. (André Arruda)
