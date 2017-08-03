@@ -6,8 +6,16 @@ class BinaryTree:
 
 	def __init__(self):
 		# construtor da árvore
-		self.__root = self.__nulo = Node(None, None)
+		self.__root = self.nulo = Node(None, None)
 
+	#retorna a raiz da arvore
+	def GetRoot(self):
+		return self.__root
+	
+	# seta a raiz da arvore
+	def SetRoot(self, newRoot):
+		self.__root = newRoot
+	
 	def RBFixup(self):
 		# fix das cores pra o balanceamento
 
