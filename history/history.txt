@@ -1,4 +1,25 @@
 ﻿Histórico de Modificações
 
-03/08/17 - 16:00 - Conclusão da classe Node. (André Arruda)
-03/08/17 - 16:30 - Início LeftRotation. (André Arruda)
+03/08/17 - Conclusão da classe Node. (André Arruda)
+03/08/17 - Início LeftRotation. (André Arruda)
+03/08/17 - LeftRotation concluído. (André Arruda)
+03/08/17 - Início RightRotation. (André Arruda)
+03/08/17 - RightRotation concluído. (André Arruda)
+
+
+Métodos da árvore já implementados:
+- GetRoot (André)
+- SetRoot (André
+- LeftRotation (André)
+- RightRotation (André)
+
+Métodos da árvore ainda não implementados:
+- RBFixup
+- RBRemoveFixUp
+- RBInsert
+- RBRemove
+- InorderTreeWalk
+- Maximum
+- Minimum
+- Successor
+- Predecessor
