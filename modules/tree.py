@@ -45,7 +45,7 @@ class BinaryTree:
 		data.SetLeft(self.nulo)
 		data.SetRight(self.nulo)
 		data.SetIsRed(True)
-
+		data.RBFixup()
 		#RBFixup(data) não esquecer de chamar o RBFixup para balanceamento da árvore
 
 	def RBFixup(self):
@@ -119,14 +119,35 @@ class BinaryTree:
 	def InOrderTreeWalk(self):
 		#percorre a árvore em ordem (menor para maior)
 		
-	def Maximum(self):
-		# retorna o número máximo
+	def Maximum(self,noh):
+    	# retorna o número máximo
+		while noh.GetRight() != self.nulo:
+			noh = noh.GetRight()
+		return noh
+		
 	
-	def Minimum(self):
+	def Minimum(self,noh):
 		# retorna o número mínimo
+		while noh.GetLeft() != self.nulo:
+    		noh = noh.GetLeft()
+		return noh
 	
-	def Successor(self):
+	def Successor(self,noh):
 		# retorna o número sucessor à entrada
+		if noh.GetRight() != self.nulo:
+			return self.Minimum(noh.GetRight())
+		y = noh.GetParent()
+		while y != self.nulo and noh == y.GetRight():
+    		noh = y
+			y = y.GetParent()
+		return y
 
 	def Predecessor(self)::
 		# retorna o número antecessor à entrada
+		elif noh.GetLeft() != self.nulo:
+    		return self.Maximum(noh.GetRight())
+		y = noh.GetParent()
+		while y != self.nulo and noh == y.GetLeft():
+    		noh = y
+			y = y.GetParent()
+		return y
