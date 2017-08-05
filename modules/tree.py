@@ -116,8 +116,13 @@ class BinaryTree:
 		y.SetRight(noh)
 		noh.SetParent(y)
 		
-	def InOrderTreeWalk(self):
+	def InOrderTreeWalk(self,root):
 		#percorre a árvore em ordem (menor para maior)
+		if root != self.nulo:
+    		self.InOrderTreeWalk(root.GetLeft())
+			print(str(root), end="")
+			self.InOrderTreeWalk(root.GetRight())
+
 		
 	def Maximum(self,noh):
     	# retorna o número máximo
@@ -144,6 +149,8 @@ class BinaryTree:
 
 	def Predecessor(self)::
 		# retorna o número antecessor à entrada
+		if noh == self.nulo:
+    		return 0
 		elif noh.GetLeft() != self.nulo:
     		return self.Maximum(noh.GetRight())
 		y = noh.GetParent()
