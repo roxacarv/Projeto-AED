@@ -9,8 +9,6 @@ class BinaryTree:
 	def __init__(self):
 		# construtor da árvore
 		self.__root = self.nulo = Node(None, None)
-		# cor de nulo deve ser preta (Todo nó criado tem cor vermelha - por padrão)
-		self.nulo.SetIsRed(False)
 
 	#retorna a raiz da arvore
 	def GetRoot(self):
