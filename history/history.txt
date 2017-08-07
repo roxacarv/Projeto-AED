@@ -1,10 +1,25 @@
 ﻿Histórico de Modificações
 
+Árvore Rubro-Negra;
+
 03/08/17 - Conclusão da classe Node. (André Arruda)
 03/08/17 - Início LeftRotation. (André Arruda)
 03/08/17 - LeftRotation concluído. (André Arruda)
 03/08/17 - Início RightRotation. (André Arruda)
 03/08/17 - RightRotation concluído. (André Arruda)
+03/08/17 - Maximum concluído. (Lucas Brígido)
+03/08/17 - Minimum concluído. (Lucas Brígido)
+03/08/17 - Successor concluído. (Lucas Brígido)
+03/08/17 - Predecessor concluído. (Lucas Brígido)
+03/08/17 - InorderTreeWalk concluído. (Lucas Brígido)
+06/08/17 - Início RBInsert. (Rodrigo Xavier)
+06/08/17 - RBInsert concluído. (Rodrigo Xavier)
+06/08/17 - Início RBFixup. (Rodrigo Xavier)
+06/08/17 - RBFixup concluído. (Rodrigo Xavier)
+06/08/17 - Início RBRemove. (Rodrigo Xavier)
+06/08/17 - RBRemove concluído. (Rodrigo Xavier)
+06/08/17 - Início RBRemoveFixUp. (Rodrigo Xavier)
+07/08/17 - RBRemoveFixUp. (Rodrigo Xavier)
 
 
 Métodos da árvore já implementados:
@@ -12,14 +27,23 @@ Métodos da árvore já implementados:
 - SetRoot (André
 - LeftRotation (André)
 - RightRotation (André)
+- Maximum (Lucas)
+- Minimum (Lucas)
+- Predecessor (Lucas)
+- Successor (Lucas)
+- InorderTreeWalk (Lucas)
+- RBInsert (Rodrigo)
+- RBFixup (Rodrigo)
+- RBRemove (Rodrigo)
+- RBRemoveFixUp (Rodrigo)
 
-Métodos da árvore ainda não implementados:
-- RBFixup
-- RBRemoveFixUp
-- RBInsert
-- RBRemove
-- InorderTreeWalk
-- Maximum
-- Minimum
-- Successor
-- Predecessor
+Adicionais:
+- Search (Rodrigo)
+- Insert (Rodrigo)
+- Remove (Rodrigo)
+
+- Os métodos RBInsert e RBRemove foram redirecionados. Para chamá-los agora, se usa object.Insert e object.Remove. O método Insert recebe os dados e chama o RBInsert passando um objeto nó como argumento; o método Remove, recebe os dados e chama o RBRemove passando o método "Search" como argumento, pra que este procure e retorne o nó do elemento desejado.
+
+- O método Search foi necessário, pois enquanto no Insert é possível criar um novo nó pra adicionar o elemento. No Remove, o elemento já existe na árvore e precisa ser removido, assim necessitando primeiro ser encontrado.
+
+- A regra do RBRemove utilizada, pra quando o nó possui dois filhos foi a do antecessor. Mas é possível trocar a regra pro sucessor sem afetar a funcionalidade da árvore.

@@ -13,6 +13,9 @@ class Node:
 		self.__right = None
 		# construtor do nó
 
+	def __repr__(self):
+		return str(self.__key)
+
 	# retorna o pai do nó
 	def GetParent(self):
 		return self.__parent
@@ -52,3 +55,9 @@ class Node:
 	# seta a cor do no
 	def SetIsRed(self, newBooleanValue):
 		self.__color = newBooleanValue
+
+	def SetKey(self, newKey):
+		self.__key = newKey
+
+	def SetData(self, newData):
+		self.__data = newData
