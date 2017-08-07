@@ -18,6 +18,7 @@ class BinaryTree:
 	def SetRoot(self, newRoot):
 		self.__root = newRoot
 
+	
 	def Insert(self, data): # invoca o RBInsert passando o novo elemento como um objeto do tipo nó
 		self.RBInsert(Node(data, None))
 
@@ -126,21 +127,24 @@ class BinaryTree:
 					self.RightRotation(n.GetParent())
 					n = self.__root
 		n.SetIsRed(False)
-
+	
+	#função que retorna True se a árvore estiver vazia (raiz é igual a nulo)
+	#e False caso contrário
+	def isEmpty(self):
+		return self.GetRoot() == self.nulo
+	
+	#a funcao search só deve ser chamada quando a raiz não for nula (usar o método isEmpty() para verificação
 	def Search(self, data):
 		x = self.__root # nomeia x como a raiz
-		if self.__root == self.nulo: # se a raiz for nula é porque a árvore está vazia
-			return "Essa árvore está vazia" # retorna mensagem
-		else: 
-			while x != self.nulo: # procura o elemento desejado
-				if data == x.GetKey(): # se achar, retorna ele
-					return x
-				else:
-					if data < x.GetKey(): # procura pelo lado esquerdo pra elementos menores
-						x = x.GetLeft()
-					else: # lado direito pros maiores
-						x = x.GetRight()
-		return "Este nó não existe"
+		while x != self.nulo: # procura o elemento desejado
+			if data == x.GetKey(): # se achar, retorna ele
+				return x
+			else:
+				if data < x.GetKey(): # procura pelo lado esquerdo pra elementos menores
+					x = x.GetLeft()
+				else: # lado direito pros maiores
+					x = x.GetRight()
+		return None #retorna None caso nó buscado não esteja na árvore
 
 	def Remove(self, data): # chama o RBRemove passando o elemento que se quer deletar, usando o Search
 		self.RBRemove(self.Search(data))
@@ -276,6 +280,8 @@ class BinaryTree:
 			noh = y
 			y = y.GetParent()
 		return y
+	
+	
 
 Arvore = BinaryTree()
 Arvore.Insert(50)
