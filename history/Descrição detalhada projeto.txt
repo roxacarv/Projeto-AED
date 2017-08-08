@@ -1,0 +1,27 @@
+Descrição do projeto:
+O sistema irá simular uma as operações de uma máquina de cartão de crédito.
+Na prática, poderíamos fazer assim: a interface-console deve receber as informações de uma compra (que pode ser um objeto), contendo valor da compra, hora compra, estabelecimento e cartão de crédito usado para comprar. Após isso, deve ser verificado se o cartão informado é válido (search na árvore de crédito), caso sim, deve-se verificar se a compra foi realizada em horário comercial do estabelecimento. Se sim, deve ser verificado o limite do cartão informado. Se  tiver limite a compra pode ser confirmada, seguindo as devidas regras.
+
+Precisaremos criar mais algumas classes.
+
+Classe cartão
+Atributos:
+- Número do cartão
+- Bandeira (talvez possa ser uma parte do número do cartão)
+- Nome do cliente
+- Limite total
+- Limite disponível
+
+
+Classe estabelecimento
+Atributos:
+- Nome
+- Endereço
+- Horário funcionamento
+- Montante comercializado no mês
+- Valor a ser pago no mês (valor que o estab. pagará à administradora do cartão)
+
+Os objetos instanciados a partir da classe Cartão, ficarão guardados no campo data dos nós da Árvore de Crédito. Os objetos instanciados a partir da classe Estabelecimento, ficarão guardados no campo data dos nós da Árvore de Estabelecimentos.
+
+Classe administradora
+Esta classe será responsável por realizar as transações
