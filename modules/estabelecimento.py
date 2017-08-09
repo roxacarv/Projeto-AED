@@ -2,13 +2,17 @@
 # Projeto AED - BSI 2017.1 - UFRPE
 ###################################
 
+from tree import *
+from geradorId import *
+
 class Estabelecimento:
-    def __init__(self, id, nome, horario, montante, valor):
-        self.__id = self.geraId(nome)
+    def __init__(self, nome, horario):
+        self.__id = geraId(nome)
         self.__nome = nome
         self.__horario = horario
-        self.__montante = montante 
-        self.__valor = valor
+        self.__montante = 0
+        self.__valor = 0
+        self.__montante = BinaryTree()
 
     ''' get area '''
     
@@ -43,10 +47,9 @@ class Estabelecimento:
 
     
     '''extras'''
-    def geraId(self, nome):
-        newKey = 0
-        weight = 1
-        for s in nome:
-            newKey += ord(s) * weight
-            weight += 1
-        return newKey
+
+    def AddMontante(self, novoValor):
+        self.__montante.Insert(novoValor)
+
+    def ImprimeMontante(self):
+        return self.__montante.TreeWalk()

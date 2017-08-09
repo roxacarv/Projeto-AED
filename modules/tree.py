@@ -19,8 +19,8 @@ class BinaryTree:
 		self.__root = newRoot
 
 	
-	def Insert(self, data): # invoca o RBInsert passando o novo elemento como um objeto do tipo nó
-		self.RBInsert(Node(data, None))
+	def Insert(self, key, data): # invoca o RBInsert passando o novo elemento como um objeto do tipo nó
+		self.RBInsert(Node(key, data))
 
 	def RBInsert(self, data):
     	# definindo duas variáveis, y como nulo e x como a raiz
@@ -144,7 +144,8 @@ class BinaryTree:
 					x = x.GetLeft()
 				else: # lado direito pros maiores
 					x = x.GetRight()
-		return None #retorna None caso nó buscado não esteja na árvore
+		else:
+			return None #retorna None caso nó buscado não esteja na árvore
 
 	def Remove(self, data): # chama o RBRemove passando o elemento que se quer deletar, usando o Search
 		self.RBRemove(self.Search(data))
@@ -241,7 +242,7 @@ class BinaryTree:
 		#percorre a árvore em ordem (menor para maior)
 		if root != self.nulo:
 			self.InOrderTreeWalk(root.GetLeft())
-			print("esq: %s (cor: %s) <- [pai: %s] main: %s (cor: %s) -> dir: %s (cor: %s)" % (root.GetLeft().GetKey(), root.GetLeft().GetIsRed(), root.GetParent(), root.GetKey(), root.GetIsRed(), root.GetRight().GetKey(), root.GetRight().GetIsRed()))
+			print(root)
 			self.InOrderTreeWalk(root.GetRight())
 
 		
@@ -280,18 +281,15 @@ class BinaryTree:
 			noh = y
 			y = y.GetParent()
 		return y
-	
-	
 
-Arvore = BinaryTree()
-Arvore.Insert(50)
-Arvore.Insert(14)
-Arvore.Insert(55)
-Arvore.Insert(13)
-Arvore.Insert(40)
-Arvore.Insert(42)
-Arvore.Insert(18)
+'''Arvore = BinaryTree()
+Arvore.Insert(10)
+Arvore.Insert(11)
+Arvore.Insert(20)
+Arvore.Insert(78)
+Arvore.Insert(100)
+Arvore.Insert(111)
 Arvore.TreeWalk()
-print("remove")
-Arvore.Remove(13)
-Arvore.TreeWalk()
+print("reset..")
+Arvore.ResetTree()
+Arvore.TreeWalk()'''

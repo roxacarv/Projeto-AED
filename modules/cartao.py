@@ -2,12 +2,15 @@
 # Projeto AED - BSI 2017.1 - UFRPE
 ###################################
 
+from tree import *
+
 class Card:
     def __init__(self, numero, titular, limiteTotal):
         self.__numero = numero
         self.__titular = titular
         self.__limiteTotal = limiteTotal 
         self.__limiteAtual = limiteTotal 
+        self.__montante = BinaryTree()
 
     ''' get area '''
     def getNumero(self):
@@ -37,4 +40,9 @@ class Card:
     def desconto(self, valorDebitar):
         self.__limiteAtual -= valorDebitar 
     
+    def AddMontante(self, novoValor):
+        self.__montante.Insert(novoValor)
+
+    def ImprimeMontante(self):
+        return self.__montante.TreeWalk()
 
