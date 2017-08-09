@@ -33,6 +33,14 @@ def VerificarLimite(numero, valorCompra):
     else:
         return False
 
+#Função que verifica se o objetoCartao possui limite para compra
+#Retorna True se tiver limite, False se não
+def VerificarLimiteByObj(objetoCartao, valorCompra):
+    if objetoCartao.GetData().getLimiteAtual() >= valorCompra:
+        return True
+    else:
+        return False
+    
 '''Métodos dos Estabelecimentos'''
 
 # cadastra um estabelecimento caso ele ainda não exista no árvore, caso contrário retorna uma mensagem de erro
