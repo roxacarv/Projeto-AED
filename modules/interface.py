@@ -26,17 +26,33 @@ def IniciaInterface():
 		IniciaInterface()
 
 def RealizarCompra():
-	print("Digite o valor da compra, o número do cartão e o estabelecimento separados por espaços: ", end="")
-	valor, numero, estabelecimento = input().split(" ", 2)
-	cartao = VerificarCartao(int(numero))
-	if cartao == None:
-		print("Esse cartão não existe, a compra não pode ser realizada")
-		IniciaInterface()
-	else:
-		if VerificarLimite(int(numero), int(valor)):
-			print("Há limite para realizar a compra")
-		else:
-			print("Não há limite suficiente para realizar a compra")
+    #É necessário receber também a hora em que a compra foi efetuada (verificar horario establecimento)
+    print("Digite o valor da compra, o número do cartão e o estabelecimento separados por espaços: ", end="")
+    valor, numero, estabelecimento = input().split(" ", 2)
+    cartao = VerificarCartao(int(numero))
+    #Verifica se o cartao existe
+    if cartao == None:
+        print("Esse cartão não existe, a compra não pode ser realizada")
+        IniciaInterface()
+    else:
+        #Se existir, verifica se o cartao tem limite suficiente para a compra
+        if VerificarLimiteByObj(cartao, float(valor)):
+            print("Há limite para realizar a compra")
+            #Agora deve-se verificar se o estabelecimento esta cadastrado
+            buscaEstabelecimento = VerificarEstabelecimento(estabelecimento)
+            #Se estabelecimento estiver cadastrado
+            if buscaEstabelecimento != None:
+                print("Estabelecimento está cadastrado!")
+                print("Verificar o horario de funcionamento do estabelecimento")
+                #Agora deve-se verificar se a compra foi efetuada em horário comercial
+            
+            #Se estabelecimento não estiver cadastrado
+            else:
+                print("Estabelecimento não está cadastrado!")
+        #Caso cartao não tenha limite para efetuar a compra
+        else:
+            print("Não há limite suficiente para realizar a compra")
+            IniciaInterface()
 
 def BuscarCartao():
 	print("Digite o número do cartão a ser buscado: ", end="")
