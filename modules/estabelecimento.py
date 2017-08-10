@@ -11,7 +11,6 @@ class Estabelecimento:
         self.__id = geraId(nome)
         self.__nome = nome
         self.__horario = horario
-        self.__montante = 0
         self.__valor = 0
         self.__montante = BinaryTree()
 
@@ -26,9 +25,6 @@ class Estabelecimento:
     def getHorario(self):
         return self.__horario
     
-    def getMontante(self):
-        return self.__montante
-    
     def getValor(self):
         return self.__valor
 
@@ -39,18 +35,15 @@ class Estabelecimento:
     
     def setHorario(self,novoHorario):
         self.__horario = horario
-        
-    def setMontante(self,novoMontante):
-        self.__montante = montante
-        
-    def setValor(self,novoValor):
-        self.__valor = valor
 
     
     '''extras'''
 
+    def AddValor(self, novoValor):
+        self.__valor += novoValor
+
     def AddMontante(self, novoValor):
-        self.__montante.Insert(novoValor)
+        self.__montante.Insert(novoValor, None)
 
     def ImprimeMontante(self):
         return self.__montante.TreeWalk()

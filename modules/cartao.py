@@ -41,7 +41,7 @@ class Card:
         self.__limiteAtual -= valorDebitar 
     
     def AddMontante(self, novoValor):
-        self.__montante.Insert(novoValor)
+        self.__montante.Insert(novoValor, None)
 
     def ImprimeMontante(self):
         return self.__montante.TreeWalk()

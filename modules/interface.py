@@ -48,13 +48,14 @@ def RealizarCompra():
                 horarioOk = VerificaHorarioComercial(horaCompra, resultBuscaEstabelecimento.GetData())
                 #Se compra for efetuada em horario comercial
                 if horarioOk:
-                    
                     cartao.GetData().desconto(float(valor))
-                    print("Limite atual do cartao: R$ %.2f" %(cartao.GetData().getLimiteAtual()))
+                    cartao.GetData().AddMontante(float(valor))
+                    resultBuscaEstabelecimento.GetData().AddMontante(((float(valor)*0.02)+float(valor)))
+                    resultBuscaEstabelecimento.GetData().AddValor((float(valor)*0.02))
+                    print("Limite atual do cartao: R$ %.2f" % (cartao.GetData().getLimiteAtual()))
                     print("*"*20)
                     print("Compra autorizada!")
                     print("*"*20)
-                    
                     IniciaInterface()
                 else:
                 	print("Estabelecimento fora do horário de funcionamento.")
