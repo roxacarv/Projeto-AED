@@ -27,9 +27,9 @@ def IniciaInterface():
 
 def RealizarCompra():
     #É necessário receber também a hora em que a compra foi efetuada (verificar horario establecimento)
-    print("Digite o valor da compra, o número do cartão, o estabelecimento e a hora da compra separados por espaços: ", end="")
-    '''ATENÇÃO: Formato hora compra -> HH:MM'''
+    print("Digite o valor da compra, o número do cartão, o estabelecimento e a hora da compra separados por espaços:\n", end="")
     valor, numero, estabelecimento, horaCompra = input().split(" ", 3)
+    #ATENÇÃO: cartao é um objeto do tipo no, não do tipo cartao
     cartao = VerificarCartao(int(numero))
     #Verifica se o cartao existe
     if cartao == None:
@@ -44,21 +44,25 @@ def RealizarCompra():
             #Se estabelecimento estiver cadastrado
             if resultBuscaEstabelecimento != None:
                 print("Estabelecimento está cadastrado!")
-                #resultado da verificacao do horario da compra
+                #Agora deve-se verificar se a compra foi efetuada em horário comercial
                 horarioOk = VerificaHorarioComercial(horaCompra, resultBuscaEstabelecimento.GetData())
                 #Se compra for efetuada em horario comercial
                 if horarioOk:
-                	print("*"*20)
+                    
+                    cartao.GetData().desconto(float(valor))
+                    print("Limite atual do cartao: R$ %.2f" %(cartao.GetData().getLimiteAtual()))
+                    print("*"*20)
                     print("Compra autorizada!")
                     print("*"*20)
+                    
                     IniciaInterface()
                 else:
-                	print("Estabelecimento fora do horário de funcionamento.")
-                	IniciaInterface()
-               
+                    print("Estabelecimento fora do horário de funcionamento.")
+                    IniciaInterface()
             #Se estabelecimento não estiver cadastrado
             else:
                 print("Estabelecimento não está cadastrado!")
+                IniciaInterface()
         #Caso cartao não tenha limite para efetuar a compra
         else:
             print("Não há limite suficiente para realizar a compra")
