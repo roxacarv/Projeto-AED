@@ -2,10 +2,12 @@
 # Projeto AED - BSI 2017.1 - UFRPE
 ###################################
 
+from armazenar import *
 from tree import *
 from cartao import *
 from estabelecimento import *
 from geradorId import *
+from pathlib import Path
 
 '''Métodos dos Cartões'''
 
@@ -78,5 +80,13 @@ def HoraParaMinutos(horario):
     qtdTotalMinutos = int(qtdMinutos) + (int(qtdHoras) * 60)
     return qtdTotalMinutos
 
-CarTree = BinaryTree()
-EstTree = BinaryTree()
+def SalvarEstado():
+    Salvar(CarTree, EstTree)
+
+if Path("infoe.ar").is_file() and Path("infoc.ar").is_file():
+    i = Load()
+    CarTree = i[0]
+    EstTree = i[1]
+else:
+    CarTree = BinaryTree()
+    EstTree = BinaryTree()

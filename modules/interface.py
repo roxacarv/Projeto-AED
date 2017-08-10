@@ -57,8 +57,8 @@ def RealizarCompra():
                     
                     IniciaInterface()
                 else:
-                    print("Estabelecimento fora do horário de funcionamento.")
-                    IniciaInterface()
+                	print("Estabelecimento fora do horário de funcionamento.")
+                	IniciaInterface()
             #Se estabelecimento não estiver cadastrado
             else:
                 print("Estabelecimento não está cadastrado!")
@@ -108,3 +108,4 @@ def CadastraEstabelecimento():
 
 
 IniciaInterface()
+SalvarEstado()

@@ -148,7 +148,11 @@ class BinaryTree:
 			return None #retorna None caso nó buscado não esteja na árvore
 
 	def Remove(self, data): # chama o RBRemove passando o elemento que se quer deletar, usando o Search
-		self.RBRemove(self.Search(data))
+		isNode = self.Search(data)
+		if isNode != None:
+			self.RBRemove(isNode)
+		else:
+			return "Esse nó não existe na árvore e portanto não pode ser removido."
 
 	def RBRemove(self, n):
 		if n.GetLeft() == self.nulo or n.GetRight() == self.nulo: # se n tiver apenas um filho e o outro for nulo
