@@ -83,6 +83,34 @@ def HoraParaMinutos(horario):
 def SalvarEstado():
     Salvar(CarTree, EstTree)
 
+def ListarCartao():
+    CartaoWalk(CarTree.GetRoot())
+
+def CartaoWalk(root):
+    if root != CarTree.GetNil():
+        CartaoWalk(root.GetRight())
+        print("-------------------------------------")
+        print("Cartão: ", root.GetData().getNumero())
+        print("Nome: ", root.GetData().getTitular())
+        print("Limite Total %.2f" %(float(root.GetData().getLimiteTotal())))
+        print("Limite Disponível %.2f" %(float(root.GetData().getLimiteAtual())))
+        print("-------------------------------------")
+        CartaoWalk(root.GetLeft())
+
+def ListaEstabelecimentos():
+    EstabelecimentoWalk(EstTree.GetRoot())
+
+def EstabelecimentoWalk(root):
+    if root != EstTree.GetNil():
+        EstabelecimentoWalk(root.GetRight())
+        print("-------------------------------------")
+        print("Nome: ", root.GetData().getNome())
+        print("Horário de Funcionamento: ", root.GetData().getHorario())
+        print("-------------------------------------")
+        EstabelecimentoWalk(root.GetLeft())
+
+
+
 if Path("infoe.ar").is_file() and Path("infoc.ar").is_file():
     i = Load()
     CarTree = i[0]

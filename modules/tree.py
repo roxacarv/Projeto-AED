@@ -10,6 +10,9 @@ class BinaryTree:
 		# construtor da árvore
 		self.__root = self.nulo = Node(None, None)
 
+	def GetNil(self):
+		return self.nulo
+
 	#retorna a raiz da arvore
 	def GetRoot(self):
 		return self.__root

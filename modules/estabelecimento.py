@@ -46,4 +46,15 @@ class Estabelecimento:
         self.__montante.Insert(novoValor, None)
 
     def ImprimeMontante(self):
-        return self.__montante.TreeWalk()
+        root = self.__montante.GetRoot()
+        nulo = self.__montante.GetNil()
+        if root == nulo:
+            print("Este estabelecimento ainda não negociou nenhum produto")
+        else:
+            self.Montante(root, nulo)
+
+    def Montante(self, root, nulo):
+        if root != nulo:
+            self.Montante(root.GetRight(), nulo)
+            print("R$ %.2f" % float(root.GetKey()))
+            self.Montante(root.GetLeft(), nulo)
