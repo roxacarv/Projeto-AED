@@ -2,6 +2,8 @@
 
 from administradora import *
 from geradorId import *
+import sys, os
+import msvcrt as m
 
 def IniciaInterface():
 	print("Bem vindo(a) ao sistema de cartão de crédito")
@@ -10,19 +12,29 @@ def IniciaInterface():
 	print("Digite a sua escolha: ", end="")
 	escolha = input()
 	if escolha == "1":
+		LimpaConsole()
 		CadastraCartao()
+		LimpaConsole()
 		IniciaInterface()
 	elif escolha == "2":
+		LimpaConsole()
 		CadastraEstabelecimento()
+		LimpaConsole()
 		IniciaInterface()
 	elif escolha == "3":
+		LimpaConsole()
 		BuscarCartao()
+		LimpaConsole()
 		IniciaInterface()
 	elif escolha == "4":
+		LimpaConsole()
 		BuscarEstabelecimento()
+		LimpaConsole()
 		IniciaInterface()
 	elif escolha == "5":
+		LimpaConsole()
 		RealizarCompra()
+		LimpaConsole()
 		IniciaInterface()
 	else:
 		print("um valor foi digitado incorretamente")
@@ -128,6 +140,9 @@ def CadastraEstabelecimento():
 	except:
 		print("Você digitou um valor ou valores incorretos. Por favor, tente novamente.")
 		IniciaInterface()
+
+def LimpaConsole(): # Procura o tipo de SO (Windows, Linux, OS) e limpa o console
+	os.system('cls' if os.name == 'nt' else 'clear')
 
 
 IniciaInterface()
