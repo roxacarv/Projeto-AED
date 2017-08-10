@@ -245,9 +245,9 @@ class BinaryTree:
 	def InOrderTreeWalk(self, root):
 		#percorre a árvore em ordem (menor para maior)
 		if root != self.nulo:
-			self.InOrderTreeWalk(root.GetLeft())
-			print(root)
 			self.InOrderTreeWalk(root.GetRight())
+			print("R$ %.2f" % float(root.GetKey()))
+			self.InOrderTreeWalk(root.GetLeft())
 
 		
 	def Maximum(self, noh):
