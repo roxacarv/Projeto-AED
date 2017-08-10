@@ -27,8 +27,9 @@ def IniciaInterface():
 
 def RealizarCompra():
     #É necessário receber também a hora em que a compra foi efetuada (verificar horario establecimento)
-    print("Digite o valor da compra, o número do cartão e o estabelecimento separados por espaços: ", end="")
-    valor, numero, estabelecimento = input().split(" ", 2)
+    print("Digite o valor da compra, o número do cartão, o estabelecimento e a hora da compra separados por espaços: ", end="")
+    '''ATENÇÃO: Formato hora compra -> HH:MM'''
+    valor, numero, estabelecimento, horaCompra = input().split(" ", 3)
     cartao = VerificarCartao(int(numero))
     #Verifica se o cartao existe
     if cartao == None:
@@ -39,13 +40,22 @@ def RealizarCompra():
         if VerificarLimiteByObj(cartao, float(valor)):
             print("Há limite para realizar a compra")
             #Agora deve-se verificar se o estabelecimento esta cadastrado
-            buscaEstabelecimento = VerificarEstabelecimento(estabelecimento)
+            resultBuscaEstabelecimento = VerificarEstabelecimento(estabelecimento)
             #Se estabelecimento estiver cadastrado
-            if buscaEstabelecimento != None:
+            if resultBuscaEstabelecimento != None:
                 print("Estabelecimento está cadastrado!")
-                print("Verificar o horario de funcionamento do estabelecimento")
-                #Agora deve-se verificar se a compra foi efetuada em horário comercial
-            
+                #resultado da verificacao do horario da compra
+                horarioOk = VerificaHorarioComercial(horaCompra, resultBuscaEstabelecimento.GetData())
+                #Se compra for efetuada em horario comercial
+                if horarioOk:
+                	print("*"*20)
+                    print("Compra autorizada!")
+                    print("*"*20)
+                    IniciaInterface()
+                else:
+                	print("Estabelecimento fora do horário de funcionamento.")
+                	IniciaInterface()
+               
             #Se estabelecimento não estiver cadastrado
             else:
                 print("Estabelecimento não está cadastrado!")

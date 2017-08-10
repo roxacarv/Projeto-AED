@@ -59,6 +59,24 @@ def VerificarEstabelecimento(nome):
         return estabelecimento
     else:
         return None
+    
+#Retorna True caso compra tenha sido realizada em horario comercial
+#Formato horario estabelecimento: HH:MM-HH:MM
+def VerificaHorarioComercial(horaCompra, objEstabelecimento):
+    horaInicial, horaFinal = objEstabelecimento.getHorario().split("-")
+    horarioInicial = HoraParaMinutos(horaInicial)
+    horarioFinal = HoraParaMinutos(horaFinal)
+    horarioCompra = HoraParaMinutos(horaCompra)
+    if horarioCompra >= horarioInicial and horarioCompra <= horarioFinal:
+        return True
+    else:
+        return False
+
+#Transforma horario (formato string -> HH:MM) em minutos
+def HoraParaMinutos(horario):
+    qtdHoras, qtdMinutos = horario.split(":")
+    qtdTotalMinutos = int(qtdMinutos) + (int(qtdHoras) * 60)
+    return qtdTotalMinutos
 
 CarTree = BinaryTree()
 EstTree = BinaryTree()

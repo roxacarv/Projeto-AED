@@ -5,6 +5,7 @@
 from tree import *
 from geradorId import *
 
+#Formato do horario: HH:MM-HH:MM
 class Estabelecimento:
     def __init__(self, nome, horario):
         self.__id = geraId(nome)
